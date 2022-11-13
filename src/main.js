@@ -29,14 +29,18 @@ const createCard = (name, img, describe) => {
 };
 
 const renderAllCards = async () => {
-  const data = await requestLolApi(endpoint);
-  const charList = Object.entries(data);
+  const char = await requestLolApi(endpoint);
 
-  charList.forEach(([name, { image, title }]) => {
-    const nameImg = `${image.full.split('.')[0]}_0.jpg`;
-    const urlImg = `${urlImgBase}${nameImg}`;
-    createCard(name, urlImg, title);
-  });
+  if (char) {
+    const { data } = char;
+    const charList = Object.entries(data);
+
+    charList.forEach(([name, { image, title }]) => {
+      const nameImg = `${image.full.split('.')[0]}_0.jpg`;
+      const urlImg = `${urlImgBase}${nameImg}`;
+      createCard(name, urlImg, title);
+    });
+  }
 };
 
 window.onload = () => {
