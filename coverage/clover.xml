@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1668360925957" clover="3.2.0">
+  <project timestamp="1668360925957" name="All files">
+    <metrics statements="14" coveredstatements="9" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0" elements="20" coveredelements="9" complexity="0" loc="14" ncloc="14" packages="1" files="2" classes="2"/>
+    <file name="data.js" path="/home/andrehorman/DEV/INSTRUÇÃO/FRONTEND/SEÇÃO-01/lol-app/src/tests/mocks/data.js">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="7785" count="1" type="stmt"/>
+    </file>
+    <file name="fetchMock.js" path="/home/andrehorman/DEV/INSTRUÇÃO/FRONTEND/SEÇÃO-01/lol-app/src/tests/mocks/fetchMock.js">
+      <metrics statements="12" coveredstatements="7" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="8" count="0" type="stmt"/>
+      <line num="11" count="0" type="stmt"/>
+      <line num="12" count="0" type="stmt"/>
+      <line num="13" count="0" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
