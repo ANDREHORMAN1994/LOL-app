@@ -14,21 +14,31 @@ describe('Testando chamada Api', () => {
 
   it('Teste se o fetch foi chamado', () => {
     requestLolApi(endpoint);
-    expect(fetch).toHaveBeenCalled();
+
+    expect(fetch).toHaveBeenCalledTimes(1);
   });
 
   it('Teste se o fetch foi chamado com o endpoint correto', () => {
     requestLolApi(endpoint);
+
     expect(fetch).toHaveBeenCalledWith(endpoint);
   });
 
   it('Teste o retorno da função requestLolApi', async () => {
-    const response = await requestLolApi(endpoint);
-    expect(response).toEqual(charactersLol);
+    const characters = await requestLolApi(endpoint);
+    expect(characters).toEqual(charactersLol);
+    expect.assertions(1);
+
+    requestLolApi(endpoint)
+      .then((response) => {
+        expect(response).toEqual(charactersLol);
+        expect.assertions(2);
+      });
   });
 
   it(`Teste se a função requestLolApi retorna
   um erro caso não passe um endpoint`, () => {
-    expect(requestLolApi()).rejects.toThrowError('Endpoint inexistente');
+    expect(() => requestLolApi())
+      .rejects.toThrowError('Endpoint inexistente');
   });
 });
