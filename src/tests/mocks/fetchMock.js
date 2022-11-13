@@ -1,21 +1,16 @@
-const data = require('./data');
+import charactersLol from './data'
 
-const REQUEST_DELAY = 200;
-const endpoint = 'http://ddragon.leagueoflegends.com/cdn/12.21.1/data/en_US/champion.json';
+const REQUEST_DELAY = 200
 
-const fetchMock = (url) => {
-  if (!endpoint) {
-    return Promise.reject(new Error(`${url} is not a valid endpoint`));
-  }
+const fetchMock = async () => ({
+  json: async () => new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(charactersLol)
+    }, REQUEST_DELAY)
+  }),
+})
 
-  return Promise.resolve({
-    json: () => new Promise((resolve) => {
-      setTimeout(() => resolve(data), REQUEST_DELAY);
-    }),
-  });
-};
+global.fetch = jest.fn(fetchMock)
+afterEach(jest.clearAllMocks)
 
-global.fetch = jest.fn(fetchMock);
-afterEach(jest.clearAllMocks);
-
-module.exports = fetchMock;
+module.exports = fetchMock
