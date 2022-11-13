@@ -28,8 +28,7 @@ describe('Testando chamada Api', () => {
   });
 
   it(`Teste se a função requestLolApi retorna
-  um erro caso não passe um endpoint`, async () => {
-    const data = await requestLolApi();
-    expect(data).toBe('Endpoint inexistente');
+  um erro caso não passe um endpoint`, () => {
+    expect(requestLolApi()).rejects.toThrowError('Endpoint inexistente');
   });
 });
