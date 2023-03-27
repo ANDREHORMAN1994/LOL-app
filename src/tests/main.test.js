@@ -12,10 +12,12 @@ describe('Testando chamada Api', () => {
     expect(typeof requestLolApi).toBe('function');
   });
 
-  it('Teste se o fetch foi chamado', () => {
-    requestLolApi(endpoint);
+  it('Teste se o fetch foi chamado', async () => {
+    const result = await requestLolApi(endpoint);
+    console.log(result.type);
 
     expect(fetch).toHaveBeenCalledTimes(1);
+    expect(result.type).toBe('champion');
   });
 
   it('Teste se o fetch foi chamado com o endpoint correto', () => {
